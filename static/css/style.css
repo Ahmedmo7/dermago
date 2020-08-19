@@ -1,0 +1,191 @@
+.DermaGoTitle {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 2vh;
+}
+
+.DermaGoTitle h1 {
+    font-size: 5vh!important;
+}
+
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+  }
+  }
+
+  .landing{
+      position: relative;
+      text-align: center;
+      color: black;
+  }
+
+  .img{
+      height: 90vh!important;
+      width: 100%;
+      object-fit: cover;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+  }
+
+  .centered{
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .centered2{
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .predictCont{
+      padding-top: 20px;
+  }
+
+  .navbar-nav {
+      background-color: pink!important;
+      margin-bottom: 0rem!important;
+  }
+
+  .input-images {
+      margin-bottom: 2.5rem;
+  }
+
+  .pic {
+      padding-left: 10.5rem;
+  }
+
+  h1.display-4.classfier {
+      text-align: center;
+  }
+  .p-2:hover{
+      text-decoration: none; 
+      opacity: 0.5;
+  }
+  .topbar {
+      height: 10vh;
+  }
+  .predictCont {
+      margin-top: -20px;
+  } 
+  
+
+  @media (max-width: 768px) {
+    .btn-danger {
+        margin-top: 1rem;
+    }
+
+    .imageSelected {
+        width: 5rem;
+    }
+
+
+}
+
+.imageSelected {
+    padding: 5px;
+}
+
+.jumbotron {
+    margin-bottom: 0rem!important;
+}
+
+#feed{
+    text-align: center;
+  }
+  
+  .research{
+    text-align: center;
+  }
+  
+  .researchTitle{
+    text-align: left;
+  }
+  
+  .contact{
+    text-align: center;
+  }
+  
+  form{
+    padding-top: 30px;
+    transition: all 4s ease-in;
+    display: inline-block;
+  }
+  
+  .form-control{
+    width: 50vw;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    color: #000;
+    font-size: 18px;
+  }
+  
+  form .submit{
+    background: pink;
+    border-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  form .submit:hover{
+    transform: scale(1.10);
+    transition: 0.5s;
+  }
+  
+  
+  footer{
+      padding-top: 10px;
+      background-color: black;
+      width: 100%;
+      z-index: 3;
+      display: inline-flex;
+      text-align: center;
+      justify-content: center;
+  }
+  
+  footer h2{
+    color: white;
+  }
+  
+  footer ul {
+    text-align: center;
+  }
+  
+  footer p{
+      font-size: 18px;
+      padding: 10px 50px;
+      color: white;
+  }
+  
+  footer .names {
+    color: white;
+    list-style: none;
+    display: inline-block;
+  }
+  
+
+  .logo {
+      padding-bottom: 4rem!important;
+  }
