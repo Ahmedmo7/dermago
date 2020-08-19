@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DermaGO</title>
+	<meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+	<link href="css/header.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet"> 
+	<style>
+
+	
+	  </style>
+</head>
+<body>
+    <div id="home">
+        <nav>
+            <input type="checkbox" id="nav" id="check" class="hidden">
+            <label for="nav" class="nav-btn">
+                <i></i>
+                <i></i>
+                <i></i>
+            </label>
+            <div id="logo" class="logo">
+                <a>DermaGO</a>
+            </div>
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="predict.html" >Home</a></li>
+                    <li><a href="predict.html#classify">Classify</a></li>
+                    <li><a href="about.html" >About</a></li>
+                    <li><a href="descriptions.html">Descriptions</a></li>
+                    <li><a href="contact.html" >Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+	
+	<div class = "predictCont">
+	
+			<div class="jumbotron" id="classify">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h1 class="display-4 classfier">Classify</h1>
+						</div>
+					</div>
+					<div class="row input-images">
+						<div class="col">
+							<input type="file" class="btn btn-dark" id = "image-selector"/>
+						</div>
+						<div class="col">
+							<button class="btn btn-danger" id = "predict-button">Predict</button>
+						</div>
+					</div>
+					<div class="row">
+					  <div class="col-4">
+						<p style = "font-weight: bold">Predictions</p>
+						<p>Benign Keratosis (bkl): <span id = "bad1-prediction"></span></p>
+						<p>Melanocytic Nevi (nv): <span id = "bad2-prediction"></span></p>
+						<p>Dermatofibroma (df): <span id = "bad3-prediction"></span></p>
+						<p>Melanoma (mel): <span id = "bad4-prediction"></span></p>
+						<p>Vascular Skin Lesions (vasc): <span id = "bad5-prediction"></span></p>
+						<p>Basal Cell Carcinoma (bcc): <span id = "bad6-prediction"></span></p>
+						<p>Actinic Keratoses (akiec): <span id = "bad7-prediction"></span></p>
+					  </div>
+					  <div class="col-6 pic">
+						<img class="imageSelected" src='IMG/melanoma.png'>
+					  </div>
+					</div>
+				  </div>
+			  </div>
+
+
+
+			<script type="text/javascript" src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+			<script type="text/javascript">
+				let base64Image;
+				$("#image-selector").change(function(){
+					let reader = new FileReader();
+					reader.onload = function(e) {
+						let dataURL = reader.result;
+						$('#selected-image').attr("src", dataURL);
+						base64Image = dataURL.replace("data:image/png;base64,","");
+						console.log(base64Image);
+					}
+					reader.readAsDataURL($("#image-selector")[0].files[0]);
+					$("#bad1-prediction").text("");
+					$("#bad2-prediction").text("");
+					$("#bad3-prediction").text("");
+					$("#bad4-prediction").text("");
+					$("#bad5-prediction").text("");
+					$("#bad6-prediction").text("");
+					$("#bad7-prediction").text("");
+				});
+
+				$("#predict-button").click(function(event){
+					let message = {
+						image: base64Image
+					}
+					console.log(message);
+					$.post("http://127.0.0.1:5000/", JSON.stringify(message), function(response){
+						$("#bad1-prediction").text(response.prediction.bkl.toFixed(6));
+						$("#bad2-prediction").text(response.prediction.nv.toFixed(6));
+						$("#bad3-prediction").text(response.prediction.df.toFixed(6));
+						$("#bad4-prediction").text(response.prediction.mel.toFixed(6));
+						$("#bad5-prediction").text(response.prediction.vasc.toFixed(6));
+						$("#bad6-prediction").text(response.prediction.bcc.toFixed(6));
+						$("#bad7-prediction").text(response.prediction.akiec.toFixed(6));
+						console.log(response);
+
+					});
+				});
+			</script>
+	
+		
+	</div>
+	<footer>
+    	<ul>
+    		<li><h2>Created By</h2></li>
+    		<li class = "names">Nathan Pogue (BSc & HBA), </li>
+    		<li class = "names">David Chen (BMSc), </li>
+    		<li class = "names">Ahmed Mohamed (BSc), </li>
+    		<li class = "names">Tara Chen (BMSc), </li>
+    		<li class = "names">Ajith Rahugnanam (HBSc)</li>
+    	</ul>
+    </footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="scroll.js"></script>
+</body>
+
+</html>
+
+
+
+
+
